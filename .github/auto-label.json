@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "tests": ["**/.tests/*", "test/*.js"],
+    "docs": ["docs/", "*.md"],
+    "admin": ["yarn.lock", "package.json", ".gitignore", "tasks.js"],
+    "config": [
+      "jest.config.js",
+      ".flowconfig",
+      ".eslintrc.yml",
+      ".eslintignore",
+      ".babelrc"
+    ],
+    "client": ["src/client/"],
+    "desktop": ["src/desktop/"],
+    "shared": ["src/shared/"],
+    "server": ["src/server/"]
+  }
+}

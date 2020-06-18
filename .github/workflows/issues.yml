@@ -1,0 +1,30 @@
+name: Create issue
+on:
+  issues:
+    types:
+      - opened
+
+    paths-ignore:
+      - ".noactions"
+
+jobs:
+  createJiraIssue:
+    name: Create jira issue when github issue opened
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Decrypt secrets
+        run: gpg -q --batch --yes --decrypt --passphrase="${{secrets.SECRETS_GPG_PASSPHRASE}}" -o ./.github/secrets/jira.env ./.github/secrets/jira.env.gpg
+
+      - name: Install gajira tools
+        run: npm install https://github.com/atlassian/gajira-login https://github.com/atlassian/gajira-create
+
+      - name: Login to Jira
+        run: 'env $(cat ./.github/secrets/jira.env | grep -v "#" | xargs) node ./node_modules/login/index.js'
+
+      - name: Create Jira Issue
+        run: node ./node_modules/create/index.js --project=MAIN --issuetype=Task --summary="${{ github.event.issue.title }}" --description='${{ github.event.issue.body }}\n\n_Created from GitHub Action_'
+        if: github.event.action == 'opened'
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

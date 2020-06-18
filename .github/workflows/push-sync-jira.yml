@@ -1,0 +1,32 @@
+name: Sync Jira
+on:
+  push:
+    paths-ignore:
+      - ".noactions"
+    branches:
+      - "master"
+
+jobs:
+  markDoneOnJira:
+    name: Mark done on jira
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Decrypt secrets
+        run: gpg -q --batch --yes --decrypt --passphrase="${{secrets.SECRETS_GPG_PASSPHRASE}}" -o ./.github/secrets/jira.env ./.github/secrets/jira.env.gpg
+
+      - name: Install gajira tools
+        run: npm install https://github.com/atlassian/gajira-login https://github.com/atlassian/gajira-transition https://github.com/atlassian/gajira-find-issue-key
+
+      - name: Login to Jira
+        run: 'env $(cat ./.github/secrets/jira.env | grep -v "#" | xargs) node ./node_modules/login/index.js'
+
+      - name: Detect Issue in branch
+        run: node ./node_modules/find/index.js --from=commits
+        continue-on-error: true
+
+      - name: Transition to done
+        run: node ./node_modules/transition/index.js Done
+        if: success()

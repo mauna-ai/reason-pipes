@@ -1,0 +1,40 @@
+name: Automate pull request tasks
+on:
+  pull_request:
+    paths-ignore:
+      - ".noactions"
+    branches:
+      - "!master"
+
+jobs:
+  deleteOnPRMerge:
+    name: Clean up branch on PR merge
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Branch cleanup
+        uses: jessfraz/branch-cleanup-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  automerge:
+    name: Automerge PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Automerge
+        uses: pascalgn/automerge-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #
+  # autoLabel:
+  #   name: Auto label
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: Auto label
+  #     uses: banyan/auto-label@master
+  #     env:
+  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

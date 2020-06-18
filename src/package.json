@@ -1,0 +1,32 @@
+{
+  "name": "<Repo Name>",
+  "version": "0.1.0",
+  "description": "<Description>",
+  "repository": "https://github.com/mauna-cloud/<repo>",
+  "author": "<Name> <<you>@mauna.ai>",
+  "license": "none",
+  "bugs": {
+    "url": "https://github.com/mauna-cloud/<repo>/issues"
+  },
+  "homepage": "https://github.com/mauna-cloud/<repo>#readme",
+  "keywords": [
+    "reason",
+    "reasonml",
+    "ocaml",
+    "bs-platform",
+    "bucklescript"
+  ],
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "clean": "bsb -clean-world",
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w"
+  },
+  "devDependencies": {
+    "bs-platform": ">= 5.0.0"
+  },
+  "peerDependencies": {
+    "bs-platform": ">= 5.0.0"
+  }
+}

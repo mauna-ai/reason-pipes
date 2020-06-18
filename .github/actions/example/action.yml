@@ -1,0 +1,8 @@
+name: example
+description: Example action scaffolded using actions-toolkit
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: anchor
+  color: gray-dark

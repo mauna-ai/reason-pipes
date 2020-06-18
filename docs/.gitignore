@@ -1,0 +1,16 @@
+/.bundle/
+/vendor/bundle
+/_site/
+/.jekyll-cache/
+/.jekyll-metadata
+
+.DS_Store
+.idea
+*.log
+tmp/
+
+.ruby-version
+.bundle
+vendor
+Gemfile.lock
+coverage

@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:mauna-cloud/.github.git
+	branch = master
+	commit = e79d9df2910110c6b38d30450de011fd83af053d
+	parent = a4151137efb0683297d64bce9df165e6876707fd
+	method = merge
+	cmdver = 0.4.1

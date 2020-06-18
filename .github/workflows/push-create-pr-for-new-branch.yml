@@ -1,0 +1,19 @@
+name: Create PR for new branch
+on:
+  push:
+    paths-ignore:
+      - ".noactions"
+    branches:
+      - "!master"
+
+jobs:
+  autoBranchPR:
+    name: Create PR for new branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Auto pull request
+        uses: repetitive/actions/auto-pull-request@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
