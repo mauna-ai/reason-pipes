@@ -5,16 +5,18 @@
     {
       "dir": "js",
       "subdirs": true
-    }, {
+    },
+    {
       "dir": "shared",
       "subdirs": true
     }
   ],
   "package-specs": {
-    "module": "es6",
+    "module": "commonjs",
     "in-source": true
   },
   "refmt": 3,
   "suffix": ".bs.js",
   "generate-merlin": true,
+  "bs-dependencies": ["reason-web-streams-polyfill"]
 }

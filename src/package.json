@@ -1,5 +1,5 @@
 {
-  "name": "<Repo Name>",
+  "name": "reason-pipes",
   "version": "0.1.0",
   "description": "<Description>",
   "repository": "https://github.com/mauna-cloud/<repo>",
@@ -24,9 +24,32 @@
     "watch": "bsb -make-world -w"
   },
   "devDependencies": {
-    "bs-platform": ">= 5.0.0"
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/node": "^7.10.3",
+    "@babel/preset-flow": "^7.10.1",
+    "babel-plugin-macros": "^2.8.0",
+    "bs-platform": "7.3.2",
+    "flow-bin": "^0.127.0"
   },
   "peerDependencies": {
-    "bs-platform": ">= 5.0.0"
+    "bs-platform": "7.3.2"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.155",
+    "@ygor/list": "^5.4.1",
+    "baobab": "^2.6.0",
+    "blob": "^0.1.0",
+    "carlo": "^0.9.46",
+    "crocks": "^0.12.4",
+    "export-all.macro": "^0.0.0",
+    "flow-runtime": "^0.17.0",
+    "lodash": "^4.17.15",
+    "pacta": "^0.9.0",
+    "param.macro": "^3.2.1",
+    "polytype": "^0.9.4",
+    "qim": "^0.0.52",
+    "ssml-jsx": "^2.0.3",
+    "web-streams-polyfill": "^2.0.3"
   }
 }
