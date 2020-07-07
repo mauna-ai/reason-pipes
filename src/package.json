@@ -1,9 +1,9 @@
 {
-  "name": "reason-pipes",
+  "name": "@mauna/reason-pipes",
   "version": "0.1.0",
-  "description": "<Description>",
+  "description": "Pipes Utils for Streams",
   "repository": "https://github.com/mauna-cloud/<repo>",
-  "author": "<Name> <<you>@mauna.ai>",
+  "author": "<Philip Balbas> <philip@mauna.ai>",
   "license": "none",
   "bugs": {
     "url": "https://github.com/mauna-cloud/<repo>/issues"
@@ -36,6 +36,7 @@
     "bs-platform": "7.3.2"
   },
   "dependencies": {
+    "@mauna/reason-web-streams": "0.1.0-development",
     "@types/lodash": "^4.14.155",
     "@ygor/list": "^5.4.1",
     "baobab": "^2.6.0",

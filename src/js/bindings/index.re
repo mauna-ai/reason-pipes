@@ -109,7 +109,7 @@ let p = chain4(`TransformStream(t), `Pipe(a), `Pipe(b), `Pipe(c));
 let readable = makeReadable([|2, 3, 4, 5|]);
 
 let transformed = readable->ReadableStream.pipeThrough(p);
-let reader = transformed->ReadableStream.getReader();
+let reader = transformed->ReadableStream.getReader;
 
 consume(reader)
 |> Js.Promise.then_(res => {

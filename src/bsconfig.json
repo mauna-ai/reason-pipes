@@ -1,5 +1,5 @@
 {
-  "name": "sharedlib",
+  "name": "@mauna/reason-pipes",
   "namespace": true,
   "sources": [
     {
@@ -18,5 +18,5 @@
   "refmt": 3,
   "suffix": ".bs.js",
   "generate-merlin": true,
-  "bs-dependencies": ["reason-web-streams-polyfill"]
+  "bs-dependencies": ["@mauna/reason-web-streams"]
 }
