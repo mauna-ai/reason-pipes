@@ -1,6 +1,9 @@
 open MaunaReasonWebStreams;
 
-type t;
+type t = {
+  readable: ReadableStream.t,
+  writable: WritableStream.t,
+};
 [@bs.module "./pipes/build/pipes/core/pipe"]
 external make: 'a => t = "default";
 

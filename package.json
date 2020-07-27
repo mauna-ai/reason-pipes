@@ -1,6 +1,6 @@
 {
   "name": "@mauna/reason-pipes",
-  "version": "0.1.4-development",
+  "version": "0.1.5-development",
   "description": "Pipes Utils for Streams",
   "repository": "https://github.com/mauna-cloud/--reason-pipes",
   "author": "<Philip Balbas> <philip@mauna.ai>",
