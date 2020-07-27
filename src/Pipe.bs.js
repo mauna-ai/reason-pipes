@@ -2,6 +2,7 @@
 'use strict';
 
 var Utils = require("./pipes/utils");
+var Caml_splice_call = require("bs-platform/lib/js/caml_splice_call.js");
 var Tee = require("./pipes/build/pipes/core/tee");
 var Pipe = require("./pipes/build/pipes/core/pipe");
 var Chain = require("./pipes/build/pipes/core/chain");
@@ -12,6 +13,10 @@ var TransformStream$MaunaReasonWebStreams = require("@mauna/reason-web-streams/s
 
 function make(prim) {
   return Pipe.default(prim);
+}
+
+function chainPipes(prim) {
+  return Caml_splice_call.spliceApply(Chain.default, [prim]);
 }
 
 function chain2(prim, prim$1) {
@@ -110,6 +115,7 @@ Utils.consume(reader).then((function (res) {
       }));
 
 exports.make = make;
+exports.chainPipes = chainPipes;
 exports.chain2 = chain2;
 exports.chain3 = chain3;
 exports.chain4 = chain4;

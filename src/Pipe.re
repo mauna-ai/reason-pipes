@@ -9,6 +9,9 @@ external make: 'a => t = "default";
 [@bs.send] external contramap: (t, 'a) => 'b = "contramap";
 [@bs.send] external promap: (t, 'a, 'a) => 'b = "promap";
 
+[@bs.module "./pipes/build/pipes/core/chain"] [@bs.variadic]
+external chainPipes: array(t) => t = "default";
+
 [@bs.module "./pipes/build/pipes/core/chain"]
 external chain2:
   (
