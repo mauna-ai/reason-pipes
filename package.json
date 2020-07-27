@@ -1,14 +1,14 @@
 {
   "name": "@mauna/reason-pipes",
-  "version": "0.1.2-development",
+  "version": "0.1.3-development",
   "description": "Pipes Utils for Streams",
-  "repository": "https://github.com/mauna-cloud/<repo>",
+  "repository": "https://github.com/mauna-cloud/--reason-pipes",
   "author": "<Philip Balbas> <philip@mauna.ai>",
   "license": "none",
   "bugs": {
-    "url": "https://github.com/mauna-cloud/<repo>/issues"
+    "url": "https://github.com/mauna-cloud/--reason-pipes/issues"
   },
-  "homepage": "https://github.com/mauna-cloud/<repo>#readme",
+  "homepage": "https://github.com/mauna-cloud/--reason-pipes#readme",
   "keywords": [
     "reason",
     "reasonml",
@@ -17,7 +17,6 @@
     "bucklescript"
   ],
   "main": "index.js",
-  "private": true,
   "scripts": {
     "clean": "bsb -clean-world",
     "build": "bsb -make-world",
@@ -36,7 +35,7 @@
     "bs-platform": "7.3.2"
   },
   "dependencies": {
-    "@mauna/reason-web-streams": "0.1.2-development",
+    "@mauna/reason-web-streams": "0.1.5-development",
     "@types/lodash": "^4.14.155",
     "@ygor/list": "^5.4.1",
     "baobab": "^2.6.0",

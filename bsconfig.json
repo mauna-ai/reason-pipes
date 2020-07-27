@@ -14,5 +14,8 @@
   "refmt": 3,
   "suffix": ".bs.js",
   "generate-merlin": true,
+  "warnings": {
+    "error": "+101"
+  },
   "bs-dependencies": ["@mauna/reason-web-streams"]
 }

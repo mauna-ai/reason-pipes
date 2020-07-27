@@ -252,10 +252,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@mauna/reason-web-streams@0.1.2-development":
-  version "0.1.2-development"
-  resolved "https://registry.yarnpkg.com/@mauna/reason-web-streams/-/reason-web-streams-0.1.2-development.tgz#9278b600ae7c9162ed899d3be4f2b270c6472dca"
-  integrity sha512-JAH8Aaci7sx75OlPxwZaYlivVNd9VaWkMN+49ODCKKGiAjAELjVtFQ/epq7fj53nUHl+2+5AI4c35TX2Wu7POw==
+"@mauna/reason-web-streams@0.1.5-development":
+  version "0.1.5-development"
+  resolved "https://registry.yarnpkg.com/@mauna/reason-web-streams/-/reason-web-streams-0.1.5-development.tgz#84057b4ac55604f39c69d5029441355671d56350"
+  integrity sha512-RdhvrwVHNGJP0ECBe4uZlCI5LwOCZC5dZGhLuiBZc/bC6JiCwgZfsUt8xBJWk0p0WfKu6Yy6zj8d3wssBQFNTg==
   dependencies:
     web-streams-polyfill "^2.1.1"
 

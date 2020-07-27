@@ -2,13 +2,13 @@
 'use strict';
 
 var Utils = require("./pipes/utils");
-var $$TransformStream = require("@mauna/reason-web-streams/src/TransformStream.bs.js");
 var Tee = require("./pipes/build/pipes/core/tee");
 var Pipe = require("./pipes/build/pipes/core/pipe");
 var Chain = require("./pipes/build/pipes/core/chain");
 var Zip = require("./pipes/build/pipes/readable/zip");
 var Sequence = require("./pipes/build/pipes/core/sequence");
 var Merge = require("./pipes/build/pipes/readable/merge");
+var TransformStream$MaunaReasonWebStreams = require("@mauna/reason-web-streams/src/TransformStream.bs.js");
 
 function make(prim) {
   return Pipe.default(prim);
@@ -58,7 +58,7 @@ function consume(prim) {
   return Utils.consume(prim);
 }
 
-var t = $$TransformStream.make({
+var t = TransformStream$MaunaReasonWebStreams.make({
       start: undefined,
       transform: (function (x, controller) {
           controller.enqueue(x + 10 | 0);
