@@ -9,7 +9,6 @@ var Chain = require("./pipes/build/pipes/core/chain");
 var Zip = require("./pipes/build/pipes/readable/zip");
 var Sequence = require("./pipes/build/pipes/core/sequence");
 var Merge = require("./pipes/build/pipes/readable/merge");
-var TransformStream$MaunaReasonWebStreams = require("@mauna/reason-web-streams/src/TransformStream.bs.js");
 
 function make(prim) {
   return Pipe.default(prim);
@@ -63,57 +62,6 @@ function consume(prim) {
   return Utils.consume(prim);
 }
 
-var t = TransformStream$MaunaReasonWebStreams.make({
-      start: undefined,
-      transform: (function (x, controller) {
-          controller.enqueue(x + 10 | 0);
-          
-        }),
-      flush: undefined
-    }, undefined, undefined, undefined);
-
-var a = Pipe.default((function (x) {
-        return x + 20 | 0;
-      }));
-
-var b = Pipe.default((function (x) {
-        return x - 15 | 0;
-      }));
-
-var c = Pipe.default((function (x) {
-        return x + 6 | 0;
-      }));
-
-var p = chain4(/* `TransformStream */[
-      755930860,
-      t
-    ], /* `Pipe */[
-      892411982,
-      a
-    ], /* `Pipe */[
-      892411982,
-      b
-    ], /* `Pipe */[
-      892411982,
-      c
-    ]);
-
-var readable = Utils.makeReadable([
-      2,
-      3,
-      4,
-      5
-    ]);
-
-var transformed = readable.pipeThrough(p);
-
-var reader = transformed.getReader();
-
-Utils.consume(reader).then((function (res) {
-        console.log(res);
-        return Promise.resolve(undefined);
-      }));
-
 exports.make = make;
 exports.chainPipes = chainPipes;
 exports.chain2 = chain2;
@@ -127,12 +75,4 @@ exports.zip = zip;
 exports.merge = merge;
 exports.makeReadable = makeReadable;
 exports.consume = consume;
-exports.t = t;
-exports.a = a;
-exports.b = b;
-exports.c = c;
-exports.p = p;
-exports.readable = readable;
-exports.transformed = transformed;
-exports.reader = reader;
-/* t Not a pure module */
+/* ./pipes/utils Not a pure module */
