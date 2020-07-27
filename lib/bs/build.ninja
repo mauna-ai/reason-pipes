@@ -1,0 +1,32 @@
+g_pkg_flg = -bs-package-name @mauna/reason-pipes -bs-ns MaunaReasonPipes
+src_root_dir = /Users/Yves/Projects/Mauna/pipes
+bsc = /Users/Yves/Projects/Mauna/pipes/node_modules/bs-platform/darwin/bsc.exe
+bsdep = /Users/Yves/Projects/Mauna/pipes/node_modules/bs-platform/darwin/bsb_helper.exe
+warnings = 
+bsc_flags = 
+ppx_flags = 
+g_dpkg_incls = 
+g_ns = -bs-ns MaunaReasonPipes
+bsb_dir_group = 0
+g_lib_incls = -I . -I src -I /Users/Yves/Projects/Mauna/pipes/node_modules/@mauna/reason-web-streams/lib/ocaml
+rule build_ast_from_re
+  command = $bsc  $warnings -color always $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
+  description = [34mBuilding[39m [2m${out}[22m
+build  src/Pipe.reast : build_ast_from_re $src_root_dir/src/Pipe.re
+rule build_deps
+  command = $bsdep -hash 1649a1eccc2c4c8b8c3a9738b98a044d $g_ns -g $bsb_dir_group $in
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  src/Pipe.d : build_deps src/Pipe.reast
+rule ml_cmj_cmi
+  command = $bsc $g_pkg_flg -color always -bs-suffix $g_lib_incls $warnings $bsc_flags -o $out $in
+  dyndep = $in_e.d
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  src/Pipe-MaunaReasonPipes.cmj |  src/Pipe-MaunaReasonPipes.cmi $src_root_dir/src/Pipe.bs.js : ml_cmj_cmi src/Pipe.reast ||  src/Pipe.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
+rule build_package
+  command = $bsc -w -49 -color always -no-alias-deps  $in
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  MaunaReasonPipes.cmi : build_package MaunaReasonPipes.mlmap

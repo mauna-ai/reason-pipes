@@ -1,8 +1,0 @@
-source 'http://rubygems.org'
-
-gem 'just-the-docs'
-
-gem 'rake', ">= 12.3.1", "< 13.1.0"
-gem 'bundler', "~> 2.1.0"
-gem 'jekyll', ">= 3.8.5", "< 4.1.0"
-gem 'jekyll-seo-tag', "~> 2.0"
