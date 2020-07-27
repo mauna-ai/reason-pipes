@@ -274,6 +274,13 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@mauna/reason-web-streams@0.1.2-development":
+  version "0.1.2-development"
+  resolved "https://registry.yarnpkg.com/@mauna/reason-web-streams/-/reason-web-streams-0.1.2-development.tgz#9278b600ae7c9162ed899d3be4f2b270c6472dca"
+  integrity sha512-JAH8Aaci7sx75OlPxwZaYlivVNd9VaWkMN+49ODCKKGiAjAELjVtFQ/epq7fj53nUHl+2+5AI4c35TX2Wu7POw==
+  dependencies:
+    web-streams-polyfill "^2.1.1"
+
 "@types/lodash@^4.14.155":
   version "4.14.155"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.155.tgz#e2b4514f46a261fd11542e47519c20ebce7bc23a"
@@ -1936,7 +1943,7 @@ v8flags@^3.1.1:
   dependencies:
     homedir-polyfill "^1.0.1"
 
-web-streams-polyfill@^2.0.3:
+web-streams-polyfill@^2.0.3, web-streams-polyfill@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/web-streams-polyfill/-/web-streams-polyfill-2.1.1.tgz#2c82b6193849ccb9efaa267772c28260ef68d6d2"
   integrity sha512-dlNpL2aab3g8CKfGz6rl8FNmGaRWLLn2g/DtSc9IjB30mEdE6XxzPfPSig5BwGSzI+oLxHyETrQGKjrVVhbLCg==
