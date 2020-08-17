@@ -1,77 +1,66 @@
 open MaunaReasonWebStreams;
 
-type t = {
-  readable: ReadableStream.t,
-  writable: WritableStream.t,
-};
 [@bs.module "./pipes/build/pipes/core/pipe"]
-external make: 'a => t = "default";
+external make: 'a => TransformStream.t = "default";
 
-[@bs.send] external compose: (t, t) => 'b = "compose";
-[@bs.send] external map: (t, 'a) => 'b = "map";
-[@bs.send] external contramap: (t, 'a) => 'b = "contramap";
-[@bs.send] external promap: (t, 'a, 'a) => 'b = "promap";
+[@bs.send]
+external compose: (TransformStream.t, TransformStream.t) => 'b = "compose";
+[@bs.send] external map: (TransformStream.t, 'a) => 'b = "map";
+[@bs.send] external contramap: (TransformStream.t, 'a) => 'b = "contramap";
+[@bs.send] external promap: (TransformStream.t, 'a, 'a) => 'b = "promap";
 
 [@bs.module "./pipes/build/pipes/core/chain"] [@bs.variadic]
-external chainPipes: array(t) => t = "default";
+external chainPipes: array(TransformStream.t) => TransformStream.t =
+  "default";
 
 [@bs.module "./pipes/build/pipes/core/chain"]
-external chain2:
-  (
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)]
-  ) =>
-  t =
+external chain2: (TransformStream.t, TransformStream.t) => TransformStream.t =
   "default";
 
 [@bs.module "./pipes/build/pipes/core/chain"]
 external chain3:
-  (
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)]
-  ) =>
-  t =
+  (TransformStream.t, TransformStream.t, TransformStream.t) =>
+  TransformStream.t =
   "default";
 
 [@bs.module "./pipes/build/pipes/core/chain"]
 external chain4:
   (
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)]
+    TransformStream.t,
+    TransformStream.t,
+    TransformStream.t,
+    TransformStream.t
   ) =>
-  t =
+  TransformStream.t =
   "default";
 
 [@bs.module "./pipes/build/pipes/core/chain"]
 external chain5:
   (
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)]
+    TransformStream.t,
+    TransformStream.t,
+    TransformStream.t,
+    TransformStream.t,
+    TransformStream.t
   ) =>
-  t =
+  TransformStream.t =
   "default";
 
 [@bs.module "./pipes/build/pipes/core/chain"]
 external chain6:
   (
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)],
-    [@bs.unwrap] [ | `Pipe(t) | `TransformStream(TransformStream.t)]
+    TransformStream.t,
+    TransformStream.t,
+    TransformStream.t,
+    TransformStream.t,
+    TransformStream.t,
+    TransformStream.t
   ) =>
-  t =
+  TransformStream.t =
   "default";
 
 [@bs.module "./pipes/build/pipes/core/sequence"]
-external sequence: unit => t = "default";
+external sequence: unit => TransformStream.t = "default";
 
 [@bs.module "./pipes/build/pipes/core/tee"] external tee: 'a => 'b = "default";
 

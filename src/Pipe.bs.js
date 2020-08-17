@@ -19,23 +19,23 @@ function chainPipes(prim) {
 }
 
 function chain2(prim, prim$1) {
-  return Chain.default(prim[1], prim$1[1]);
+  return Chain.default(prim, prim$1);
 }
 
 function chain3(prim, prim$1, prim$2) {
-  return Chain.default(prim[1], prim$1[1], prim$2[1]);
+  return Chain.default(prim, prim$1, prim$2);
 }
 
 function chain4(prim, prim$1, prim$2, prim$3) {
-  return Chain.default(prim[1], prim$1[1], prim$2[1], prim$3[1]);
+  return Chain.default(prim, prim$1, prim$2, prim$3);
 }
 
 function chain5(prim, prim$1, prim$2, prim$3, prim$4) {
-  return Chain.default(prim[1], prim$1[1], prim$2[1], prim$3[1], prim$4[1]);
+  return Chain.default(prim, prim$1, prim$2, prim$3, prim$4);
 }
 
 function chain6(prim, prim$1, prim$2, prim$3, prim$4, prim$5) {
-  return Chain.default(prim[1], prim$1[1], prim$2[1], prim$3[1], prim$4[1], prim$5[1]);
+  return Chain.default(prim, prim$1, prim$2, prim$3, prim$4, prim$5);
 }
 
 function sequence(prim) {
