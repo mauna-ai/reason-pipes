@@ -1,9 +1,9 @@
 {
   "name": "@mauna/reason-pipes",
-  "version": "0.1.7-development",
+  "version": "0.1.8-development",
   "description": "Pipes Utils for Streams",
   "repository": "https://github.com/mauna-cloud/--reason-pipes",
-  "author": "<Philip Balbas> <philip@mauna.ai>",
+  "author": "Philip Balbas <philip@mauna.ai>",
   "license": "none",
   "bugs": {
     "url": "https://github.com/mauna-cloud/--reason-pipes/issues"
@@ -28,15 +28,12 @@
     "@babel/node": "^7.10.3",
     "@babel/preset-flow": "^7.10.1",
     "babel-plugin-macros": "^2.8.0",
-    "bs-platform": "7.3.2",
+    "bs-platform": "8.2.0",
     "flow-bin": "^0.127.0"
   },
-  "peerDependencies": {
-    "bs-platform": "7.3.2"
-  },
   "dependencies": {
-    "@mauna/reason-web-streams": "0.1.6-development",
-    "@types/lodash": "^4.14.155",
+    "@mauna/reason-web-streams": "0.1.7-development",
+    "@types/lodash": "^4.14.160",
     "@ygor/list": "^5.4.1",
     "baobab": "^2.6.0",
     "blob": "^0.1.0",
@@ -44,12 +41,12 @@
     "crocks": "^0.12.4",
     "export-all.macro": "^0.0.0",
     "flow-runtime": "^0.17.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "pacta": "^0.9.0",
     "param.macro": "^3.2.1",
     "polytype": "^0.9.4",
     "qim": "^0.0.52",
     "ssml-jsx": "^2.0.3",
-    "web-streams-polyfill": "^2.0.3"
+    "web-streams-polyfill": "^3.0.0"
   }
 }

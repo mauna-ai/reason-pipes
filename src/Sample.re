@@ -20,15 +20,15 @@ let a = Pipe.make(x => x + 20);
 let b = Pipe.make(x => x - 15);
 let c = Pipe.make(x => x + 6);
 
-let p = Pipe.chain4(`TransformStream(t), `Pipe(a), `Pipe(b), `Pipe(c));
+// let p = Pipe.chain4(`TransformStream(t), `Pipe(a), `Pipe(b), `Pipe(c));
 
-let readable = Pipe.makeReadable([|2, 3, 4, 5|]);
+// let readable = Pipe.makeReadable([|2, 3, 4, 5|]);
 
-let transformed = readable->ReadableStream.pipeThrough(p);
-let reader = transformed->ReadableStream.getReader;
+// let transformed = readable->ReadableStream.pipeThrough(p);
+// let reader = transformed->ReadableStream.getReader;
 
-Pipe.consume(reader)
-|> Js.Promise.then_(res => {
-     Js.log(res);
-     Js.Promise.resolve();
-   });
+// Pipe.consume(reader)
+// |> Js.Promise.then_(res => {
+//      Js.log(res);
+//      Js.Promise.resolve();
+//    });

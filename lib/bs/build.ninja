@@ -7,26 +7,25 @@ bsc_flags =
 ppx_flags = 
 g_dpkg_incls = 
 g_ns = -bs-ns MaunaReasonPipes
-bsb_dir_group = 0
-g_lib_incls = -I . -I src -I /Users/Yves/Projects/Mauna/pipes/node_modules/@mauna/reason-web-streams/lib/ocaml
+g_lib_incls = -I . -I src/pipes/build/types -I src/pipes/build/utils/.tests -I src/pipes/build/utils -I src/pipes/build/pipes/core/.tests -I src/pipes/build/pipes/core -I src/pipes/build/pipes/writable/.tests -I src/pipes/build/pipes/writable -I src/pipes/build/pipes/utils/.tests -I src/pipes/build/pipes/utils -I src/pipes/build/pipes/hos/.tests -I src/pipes/build/pipes/hos -I src/pipes/build/pipes/readable/.tests -I src/pipes/build/pipes/readable -I src/pipes/build/pipes/convert/writable/.tests -I src/pipes/build/pipes/convert/writable -I src/pipes/build/pipes/convert/.tests -I src/pipes/build/pipes/convert/readable/.tests -I src/pipes/build/pipes/convert/readable -I src/pipes/build/pipes/convert -I src/pipes/build/pipes -I src/pipes/build/structs/participants -I src/pipes/build/structs/memory -I src/pipes/build/structs/semantics -I src/pipes/build/structs/state -I src/pipes/build/structs/ontology -I src/pipes/build/structs/dialog -I src/pipes/build/structs/application -I src/pipes/build/structs/engine -I src/pipes/build/structs/base -I src/pipes/build/structs -I src/pipes/build -I src/pipes -I src -I /Users/Yves/Projects/Mauna/pipes/node_modules/@mauna/reason-web-streams/lib/ocaml
 rule build_ast_from_re
-  command = $bsc  $warnings -color always $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
+  command = $bsc  $warnings $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
   description = [34mBuilding[39m [2m${out}[22m
-build  src/Pipe.reast : build_ast_from_re $src_root_dir/src/Pipe.re
-rule build_deps
-  command = $bsdep -hash 07bf27553de7814538ae0b71513c4f3f $g_ns -g $bsb_dir_group $in
+build  src/Pipe.resast : build_ast_from_re $src_root_dir/src/Pipe.res
+rule mk_deps
+  command = $bsdep -hash d666e7a7e9e42a8a8fc07c1edcf4122a $g_ns $in
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
-build  src/Pipe.d : build_deps src/Pipe.reast
+build  src/Pipe.d : mk_deps src/Pipe.resast
 rule ml_cmj_cmi
-  command = $bsc $g_pkg_flg -color always -bs-suffix $g_lib_incls $warnings $bsc_flags -o $out $in
+  command = $bsc $g_pkg_flg -bs-suffix $g_lib_incls $warnings $bsc_flags -o $out $in
   dyndep = $in_e.d
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
-build  src/Pipe-MaunaReasonPipes.cmj |  src/Pipe-MaunaReasonPipes.cmi $src_root_dir/src/Pipe.bs.js : ml_cmj_cmi src/Pipe.reast ||  src/Pipe.d
+build  src/Pipe-MaunaReasonPipes.cmj |  src/Pipe-MaunaReasonPipes.cmi $src_root_dir/src/Pipe.bs.js : ml_cmj_cmi src/Pipe.resast ||  src/Pipe.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
 build  src/Sample.reast : build_ast_from_re $src_root_dir/src/Sample.re
-build  src/Sample.d : build_deps src/Sample.reast
+build  src/Sample.d : mk_deps src/Sample.reast
 build  src/Sample-MaunaReasonPipes.cmj |  src/Sample-MaunaReasonPipes.cmi $src_root_dir/src/Sample.bs.js : ml_cmj_cmi src/Sample.reast ||  src/Sample.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
 rule build_package

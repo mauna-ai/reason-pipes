@@ -13,54 +13,20 @@ var t = TransformStream$MaunaReasonWebStreams.make({
       flush: undefined
     }, undefined, undefined, undefined);
 
-var a = Pipe$MaunaReasonPipes.make((function (x) {
-        return x + 20 | 0;
-      }));
+var a = Pipe$MaunaReasonPipes.make(function (x) {
+      return x + 20 | 0;
+    });
 
-var b = Pipe$MaunaReasonPipes.make((function (x) {
-        return x - 15 | 0;
-      }));
+var b = Pipe$MaunaReasonPipes.make(function (x) {
+      return x - 15 | 0;
+    });
 
-var c = Pipe$MaunaReasonPipes.make((function (x) {
-        return x + 6 | 0;
-      }));
-
-var p = Pipe$MaunaReasonPipes.chain4(/* `TransformStream */[
-      755930860,
-      t
-    ], /* `Pipe */[
-      892411982,
-      a
-    ], /* `Pipe */[
-      892411982,
-      b
-    ], /* `Pipe */[
-      892411982,
-      c
-    ]);
-
-var readable = Pipe$MaunaReasonPipes.makeReadable([
-      2,
-      3,
-      4,
-      5
-    ]);
-
-var transformed = readable.pipeThrough(p);
-
-var reader = transformed.getReader();
-
-Pipe$MaunaReasonPipes.consume(reader).then((function (res) {
-        console.log(res);
-        return Promise.resolve(undefined);
-      }));
+var c = Pipe$MaunaReasonPipes.make(function (x) {
+      return x + 6 | 0;
+    });
 
 exports.t = t;
 exports.a = a;
 exports.b = b;
 exports.c = c;
-exports.p = p;
-exports.readable = readable;
-exports.transformed = transformed;
-exports.reader = reader;
 /* t Not a pure module */
