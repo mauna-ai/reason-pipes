@@ -13,7 +13,7 @@ rule build_ast_from_re
   description = [34mBuilding[39m [2m${out}[22m
 build  src/Pipe.resast : build_ast_from_re $src_root_dir/src/Pipe.res
 rule mk_deps
-  command = $bsdep -hash d666e7a7e9e42a8a8fc07c1edcf4122a $g_ns $in
+  command = $bsdep -hash 661a76409cad18e8a07f216af4b16c26 $g_ns $in
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
 build  src/Pipe.d : mk_deps src/Pipe.resast
@@ -23,10 +23,6 @@ rule ml_cmj_cmi
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
 build  src/Pipe-MaunaReasonPipes.cmj |  src/Pipe-MaunaReasonPipes.cmi $src_root_dir/src/Pipe.bs.js : ml_cmj_cmi src/Pipe.resast ||  src/Pipe.d
-  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
-build  src/Sample.reast : build_ast_from_re $src_root_dir/src/Sample.re
-build  src/Sample.d : mk_deps src/Sample.reast
-build  src/Sample-MaunaReasonPipes.cmj |  src/Sample-MaunaReasonPipes.cmi $src_root_dir/src/Sample.bs.js : ml_cmj_cmi src/Sample.reast ||  src/Sample.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
 rule build_package
   command = $bsc -w -49 -color always -no-alias-deps  $in
