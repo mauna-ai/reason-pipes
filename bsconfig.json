@@ -17,5 +17,5 @@
   "warnings": {
     "error": "+101"
   },
-  "bs-dependencies": ["@mauna/reason-web-streams"]
+  "bs-dependencies": ["@mauna/reason-web-streams", "reason-react", "bs-enzyme"]
 }

@@ -1,6 +1,6 @@
 {
   "name": "@mauna/reason-pipes",
-  "version": "0.1.10-development",
+  "version": "0.1.11-development",
   "description": "Pipes Utils for Streams",
   "repository": "https://github.com/mauna-cloud/--reason-pipes",
   "author": "Philip Balbas <philip@mauna.ai>",
@@ -28,12 +28,12 @@
     "@babel/node": "^7.10.3",
     "@babel/preset-flow": "^7.10.1",
     "babel-plugin-macros": "^2.8.0",
-    "bs-platform": "8.2.0",
+    "bs-platform": "7.3.2",
     "bsdoc": "^6.0.4-alpha",
     "flow-bin": "^0.127.0"
   },
   "dependencies": {
-    "@mauna/reason-web-streams": "0.1.8-development",
+    "@mauna/reason-web-streams": "0.1.10-development",
     "@types/lodash": "^4.14.160",
     "@ygor/list": "^5.4.1",
     "baobab": "^2.6.0",
@@ -47,6 +47,8 @@
     "param.macro": "^3.2.1",
     "polytype": "^0.9.4",
     "qim": "^0.0.52",
+    "react": "^16.13.1",
+    "reason-react": "^0.9.1",
     "ssml-jsx": "^2.0.3",
     "web-streams-polyfill": "^3.0.0"
   }
